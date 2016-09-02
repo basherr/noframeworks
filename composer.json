@@ -1,0 +1,19 @@
+{
+	"name": "No Framework",
+	"description" : "The Project does not use any of the framework",
+	"license" : "MIT",
+	"authors" : [
+		{
+			"name" : "Basheer",
+			"email" : "bsr.anwar@gmail.com"
+		}
+	],
+	"require" : {
+		"php": ">=5.5.0"
+	},
+	"autoload":{
+		"psr-4": {
+			"Applicatin\\": "src/"
+		}
+	}
+}
