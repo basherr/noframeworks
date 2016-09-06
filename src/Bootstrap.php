@@ -23,10 +23,11 @@ if($env === 'development') {
 
 $whoops->register();
 
+$injector = include('dependencies.php');
 
-$request = new \Http\HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
+$request = $injector->make('Http\HttpRequest');
 
-$response = new \Http\HttpResponse;
+$response = $injector->make('Http\HttpResponse');
 
 
 foreach($response->getHeaders() as $header)
@@ -61,7 +62,7 @@ switch ($routeInfo[0]) {
 	    $method = $routeInfo[1][1];
 	    $vars = $routeInfo[2];
 	    
-	    $class = new $className;
+	    $class = $injector->make($className);
 	    $class->$method($vars);
         break;
 }
